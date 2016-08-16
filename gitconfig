@@ -1,0 +1,24 @@
+[user]
+  name = Mike Groseclose
+  email = mike.groseclose@gmail.com
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+[color]
+  ui = true
+[core]
+  editor = vim
+[branch]
+  autosetuprebase = always
+[alias]
+
+[push]
+  default = current
+[pull]
+  default = current
+[credential]
+  helper = osxkeychain
+[filter "media"]
+  clean = git-media-clean %cleanf
+  smudge = git-media-smudge %filter
