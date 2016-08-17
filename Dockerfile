@@ -63,6 +63,6 @@ RUN git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/plugins/tmux-yan
 ADD gitconfig /home/$USER/.gitconfig
 
 # expose ports
-EXPOSE 22 80 3000 4000
+EXPOSE 22
 
 CMD sudo /usr/sbin/sshd -D
