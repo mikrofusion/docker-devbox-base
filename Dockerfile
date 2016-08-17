@@ -16,11 +16,7 @@ RUN apt-get install -y \
       tmux \
       tig \
       vim-gtk \
-      xclip \
-      ruby
-
-# https://github.com/chrishunt/github-auth
-RUN gem install github-auth --no-rdoc --no-ri
+      xclip
 
 RUN apt-add-repository ppa:fish-shell/release-2 &&\
     apt-get update &&\
@@ -46,20 +42,13 @@ RUN /usr/sbin/update-locale LANG=en_US.UTF-8
 # run as user
 USER $USER
 
-# ssh
-RUN mkdir /home/$USER/.ssh
-RUN touch /home/$USER/.ssh/authorized_keys
-RUN gh-auth add --users=$USER
-
-# fish
-RUN mkdir ~/.config
-
+# vim
 ADD vimrc /home/$USER/.vimrc
-
 RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 RUN vim +PluginInstall +qall
 
 # fish
+RUN mkdir ~/.config
 RUN mkdir ~/.config/fish
 ADD config.fish /home/$USER/.config/fish/config.fish
 RUN curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
@@ -68,7 +57,6 @@ RUN fish -c 'fisher oh-my-fish/theme-bobthefish'
 # tmux
 ADD tmux.conf /home/$USER/.tmux.conf
 ADD tmux.conf.local /home/$USER/.tmux.conf.local
-
 RUN git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux/plugins/tmux-yank
 
 # git

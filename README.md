@@ -26,3 +26,19 @@ then run:
 ssh devbox
 ```
 
+Note:
+
+Connecting to devbox requires that you have your public keys in the authorized_keys file here:
+
+```
+/home/$USER/.ssh/authorized_keys
+```
+
+A useful way to do this is to install github-auth locally and add the keys to your enviornment prior to running ``` make ```
+
+```
+# ssh
+# https://github.com/chrishunt/github-auth
+gem install github-auth --no-rdoc --no-ri
+gh-auth add --users=$USER
+```
