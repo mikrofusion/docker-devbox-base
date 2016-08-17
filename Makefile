@@ -1,11 +1,5 @@
 run: build
-	docker run -d \
-		--name "devbox-base" \
-		-p 0.0.0.0:33322:22 \
-		-v /Users/mikrofusion/.ssh/id_rsa:/home/mikrofusion/.ssh/id_rsa \
-		-v /Users/mikrofusion/.ssh/authorized_keys:/home/mikrofusion/.ssh/authorized_keys \
-		-v /Users/mikrofusion/devbox:/home/mikrofusion/mount \
-		devbox-base
+	docker-compose up
 
 build:
 	docker build -t devbox-base .

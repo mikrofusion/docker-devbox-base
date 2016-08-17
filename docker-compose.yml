@@ -1,0 +1,10 @@
+version: '2'
+services:
+  web:
+    image: mikrofusion/docker-devbox-base
+    volumes:
+      - /Users/mikrofusion/.ssh/id_rsa:/home/mikrofusion/.ssh/id_rsa
+      - /Users/mikrofusion/.ssh/authorized_keys:/home/mikrofusion/.ssh/authorized_keys
+      - /Users/mikrofusion/devbox:/home/mikrofusion/mount
+    ports:
+      - "33322:22"
