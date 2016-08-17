@@ -1,5 +1,5 @@
-set backupdir=~/.vim/bkup               " Directories for bkup files
-set directory=~/.vim/bkup               " Directories for swp files
+"set backupdir=~/.vim/bkup               " Directories for bkup files
+"set directory=~/.vim/bkup               " Directories for swp files
 
 set encoding=utf-8                      " The encoding displayed.
 set fileencoding=utf-8                  " The encoding written to file.
@@ -113,7 +113,10 @@ set number
 set ruler
 set background=dark
 set t_Co=256                         " force vim to use 256 colors
-colorscheme jellybeans               " user jellybeans scheme
+
+if filereadable("~/.vim/bundle/jellybeans.vim/colors/jellybeans.vim")
+  colorscheme jellybeans               " user jellybeans scheme
+endif
 
 " make the colors pretty
 highlight Normal ctermbg=none
@@ -214,3 +217,11 @@ nnoremap <leader>s <C-w>s<C-w>l
 
 " sytax highlighting for ejs files
 au BufNewFile,BufRead *.ejs set filetype=html
+
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
