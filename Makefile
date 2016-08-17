@@ -15,8 +15,8 @@ rebuild:
 
 clean:
 	docker kill devbox-base
-	docker rmi devbox-base
 	docker rm devbox-base
+	docker rmi devbox-base
 
 publish: rebuild push
 
