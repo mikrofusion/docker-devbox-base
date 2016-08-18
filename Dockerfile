@@ -16,6 +16,7 @@ RUN apt-get install -y \
       tmux \
       tig \
       vim-gtk \
+      silversearcher-ag \
       xclip
 
 RUN apt-add-repository ppa:fish-shell/release-2 &&\

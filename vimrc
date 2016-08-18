@@ -37,6 +37,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'chrisbra/csv.vim'
 Plugin 'tpope/vim-git'
 Plugin 'slim-template/vim-slim'
+Plugin 'mileszs/ack.vim'
 
 " indentation
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -52,9 +53,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 
 " allow git changes to be seen in gutter
 Plugin 'airblade/vim-gitgutter'
-
-" ag the silver searcher
-Plugin 'rking/ag.vim'
 
 " show buffers
 Plugin 'jeetsukumaran/vim-buffergator'
@@ -187,9 +185,6 @@ augroup END
 " remap jj to escape
 inoremap jj <esc>
 
-" open when vim starts
-"autocmd vimenter * NERDTree
-
 " NERDTree 
 map <leader>n :NERDTreeToggle<CR>
 
@@ -201,9 +196,6 @@ nnoremap <silent> <C-Right> <c-w>l
 nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
-
-" use system keyboard
-"set clipboard=unnamed
 
 " toggle search highlighting
 nnoremap <silent> <SPACE> :set hlsearch!<CR>
@@ -225,3 +217,9 @@ if has("clipboard")
     set clipboard+=unnamedplus
   endif
 endif
+
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack

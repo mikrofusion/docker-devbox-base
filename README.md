@@ -42,3 +42,9 @@ A useful way to do this is to install github-auth locally and add the keys to yo
 gem install github-auth --no-rdoc --no-ri
 gh-auth add --users=$USER
 ```
+
+# Repos
+
+The following devbox repos have been built to extend this:
+
+* [docker-elixir-postgres](https://github.com/mikrofusion/docker-devbox-elixir-postgres)
