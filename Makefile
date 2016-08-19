@@ -2,18 +2,17 @@ run: build
 	docker-compose up
 
 build:
-	docker build -t devbox-base .
+	docker build -t $(USER)/docker-devbox-base --build-arg user=$(USER) .
 
 rebuild:
-	docker build --no-cache -t devbox-base --pull=true .
+	docker build --no-cache -t $(USER)/docker-devbox-base --pull=true --build-arg user=$(USER) .
 
 clean:
-	docker kill devbox-base
-	docker rm devbox-base
-	docker rmi devbox-base
+	docker kill $(USER)/docker-devbox-base
+	docker rm $(USER)/docker-devbox-base
+	docker rmi $(USER)/docker-devbox-base
 
 push:
-	docker tag devbox-base mikrofusion/docker-devbox-base
-	docker push mikrofusion/docker-devbox-base
+	docker push $(USER)/docker-devbox-base
 
 publish: rebuild push
