@@ -4,13 +4,13 @@ Note: ensure syncing is enabled under XQuartz -> Preferences -> Pasteboard
 
 clone repo, cd into repo, and run ` make `
 
-Put this in ``` ~/.ssh/config ```:
+Put this in ``` ~/.ssh/config ``` (making sure to replace the username which whatever your $USER is):
 
 ```
 Host devbox
   HostName localhost
   Port 33322
-  User mikrofusion
+  User <insert your username here>
   ForwardAgent true
   # required for copy / paste between systems
   ForwardX11 yes
